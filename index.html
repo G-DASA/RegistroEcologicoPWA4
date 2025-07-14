@@ -1,1 +1,68 @@
-<qui va il file index completo aggiornato>
+<!-- sostituisci completamente il tuo file index.html con il seguente -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro Operatore Ecologico</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#007bff">
+</head>
+<body>
+  <div class="container">
+    <h1>Registro Operatore Ecologico</h1>
+    <div id="intestazione">
+      <label>Operatore: <input id="operatore" type="text" placeholder="Nome operatore" /></label>
+      <label>Zona/Turno: <input id="zona" type="text" placeholder="Zona o turno" /></label>
+    </div>
+
+    <div class="section">
+  <h2>Gestione Turno e Pausa</h2>
+  <div class="grid">
+    <button class="btn-info" onclick="toggleTurno()">Inizio Turno / Fine Turno</button>
+    <button class="btn-info" onclick="toggleScarico()">Inizio Scarico / Fine Scarico</button>
+    <button class="btn-success" onclick="aggiungiAzione('Prima Presa')">Prima Presa</button>
+    <button class="btn-success" onclick="aggiungiAzione('Ultima Presa')">Ultima Presa</button>
+    <button class="btn-info" onclick="togglePausa()">Inizio Pausa / Fine Pausa</button>
+    <button class="btn-info" onclick="toggleRifornimento()">Inizio Rifornimento / Fine Rifornimento</button>
+  </div>
+</div>
+
+    <div class="section">
+      <h2>Operazioni di Raccolta</h2>
+      <div class="grid">
+        <button class="btn-success" onclick="startDiscesa()">Nuova Discesa</button>
+        <button class="btn-primary" onclick="addRaccolta('Sacchetto/Bidoncino')">Sacchetto/Bidoncino<sup id="count-SacchettoBidoncino" class="badge">0</sup></button>
+        <button class="btn-primary" onclick="addRaccolta('120lt')">120lt<sup id="count-120lt" class="badge">0</sup></button>
+        <button class="btn-primary" onclick="addRaccolta('240lt')">240lt<sup id="count-240lt" class="badge">0</sup></button>
+        <button class="btn-primary" onclick="addRaccolta('360lt')">360lt<sup id="count-360lt" class="badge">0</sup></button>
+        <button class="btn-primary" onclick="addRaccolta('1100lt')">1100lt<sup id="count-1100lt" class="badge">0</sup></button>
+        <button class="btn-primary" onclick="addRaccolta('Cestini')">Cestini<sup id="count-Cestini" class="badge">0</sup></button>
+        <button class="btn-danger" onclick="annullaUltima()">Annulla Ultima Azione</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Azioni Speciali e Segnalazioni</h2>
+      <div class="grid">
+        <button class="btn-secondary" onclick="resetDati()">Reset Tutti i Dati</button>
+        <button class="btn-warning" onclick="addSegnalazione('BidoneDaSostituire')">Bidone da sostituire</button>
+        <button class="btn-warning" onclick="addSegnalazione('FondoSconnesso')">Fondo sconnesso</button>
+        <button class="btn-warning" onclick="addSegnalazione('ManovraPericolosa')">Manovra pericolosa</button>
+        <button class="btn-warning" onclick="addSegnalazione('AbbandonoMezzo')">Abbandono del mezzo</button>
+        <button class="btn-warning" onclick="inserisciNota()">Nota</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Esporta Dati</h2>
+      <label>Nome file: <input id="filename" type="text" placeholder="es. raccolta_turno1" /></label>
+      <button class="btn-export" onclick="exportExcel()">📥 Esporta in Excel</button>
+    </div>
+
+    <div id="log"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
